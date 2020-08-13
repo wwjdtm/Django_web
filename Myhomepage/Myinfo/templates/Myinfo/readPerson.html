@@ -1,5 +1,9 @@
 {% extends "base.html" %}
-<!-- {% load static %} -->
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/myhomep.css' %}">
+{% endblock css %}
+
 {% block nav %}
 <nav>
   <ul>
@@ -12,11 +16,6 @@
 {% endblock nav %}
 
 {% block content %}
-<div class="bgbox">
-    <video muted autoplay loop>
-      <source src="mov.mov" type="video/mp4">
-      <strong>Your browser does not support the video tag.</strong>
-    </video>
 
     <div class="bgtext">
 
@@ -29,5 +28,4 @@
 
     </div>
 
-  </div>
 {% endblock content %}

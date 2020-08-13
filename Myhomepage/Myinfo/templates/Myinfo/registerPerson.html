@@ -1,19 +1,23 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock css %}
 
 {% block content %}
-  <p>Register Homepage</p>
+<div class="reg">
+  <p>WELCOME</p>
+  
+    <form action="{% url 'Myinfo:createP'%}" method="post">{% csrf_token %}
 
-  <form action="{% url 'Myinfo:createP'%}" method="post">{% csrf_token %}
-
-    name : <input type="text" name="name"></br>
-    photo : <input type="text" name="photo"></br>
-    email : <input type="text" name="email"></br>
-    github_link : <input type="text" name="github_link"></br>
-    skill : <input type="text" name="skill"></br>
-    sns : <input type="text" name="sns"></br>
-    introduction : <input type="text" name="introduction"></br>
-    <input type="submit" name="Register"></br>
-  </form>
-
+      name : <input type="text" name="name"></br>
+      email : <input type="text" name="email"></br>
+      github_link : <input type="text" name="github_link"></br>
+      skill : <input type="text" name="skill"></br>
+      sns : <input type="text" name="sns"></br>
+      <input type="submit" name="Register"></br>
+    </form>
+  </div>
 
 {% endblock content %}

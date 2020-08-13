@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/myhomep.css' %}">
+{% endblock css %}
+
+
+{% block content %}
+<div class="mainpage">
+  
+        <button id="Register" onclick="location.href='/Myinfo/reg'">Register</button>
+        <button id="login">Login</button>
+
+
+  </div>
+{% endblock content %}

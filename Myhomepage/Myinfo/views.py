@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from Myinfo.models import Myinfo
 from .models import *
 from .forms import MyinfoForm
+
+def main(request):
+    return render(request,'Myinfo/main.html')
+
 
 def regPerson(request):
     return render(request, 'Myinfo/registerPerson.html')
@@ -27,8 +31,8 @@ def create(request):
         form = MyinfoForm(request.POST)
         if form.is_valid():
             form.save() #db에 저장하는부분
-        # return redirect('/Myinfo/list')
-    else: ##데이터입력폼
+            return redirect('/')
+    else:
         form = MyinfoForm()
 
     return render(request, 'Myinfo/readPerson.html', {'form': form})

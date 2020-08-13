@@ -20,7 +20,7 @@ app_name='Myinfo'
 
 urlpatterns = [
     url(r'^reg/', views.regPerson, name='reg'),
-    url(r'^regCon/', views.create, name='createP'), #회원정보저장
-    # url(r'^main/', views.mainPerson, name='mainP'),
+    url(r'^home/', views.create, name='createP'), #회원정보저장
+    url(r'^', views.main, name='main'), #메인화면
 
 ]
