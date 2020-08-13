@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+<!-- {% load static %} -->
+{% block nav %}
+<nav>
+  <ul>
+    <li><a href = "/index.html">HOME</a></li>
+    <li><a href = "/Project/Project.html" id='b1'>Project</a></li>
+    <li><a href = "/News/News.html">News</a></li>
+    <li><a href = "/Contact/Contact.html">Contact</a></li>
+  </ul>
+</nav>
+{% endblock nav %}
+
+{% block content %}
+<div class="bgbox">
+    <video muted autoplay loop>
+      <source src="mov.mov" type="video/mp4">
+      <strong>Your browser does not support the video tag.</strong>
+    </video>
+
+    <div class="bgtext">
+
+      <p>{{form.name}}</p>
+      <h2>Kookmin University Software</h2>
+      <h3>Contact</h3>
+      <h4>{{form.email}}</h4>
+      <img src="insta.png" width="25px" height="25px">
+      <a href="http://www.instagram.com/iwantyun" target="blank"> {{form.sns}}</h4>
+
+    </div>
+
+  </div>
+{% endblock content %}

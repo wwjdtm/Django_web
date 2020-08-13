@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Myinfo(models.Model):
-	name = models.CharField(max_length=30, default="김윤정")
+	name = models.CharField(max_length=30)
 	photo = models.CharField(max_length=500, null=True, blank=True)
 	email = models.CharField(max_length=100)
 	github_link = models.CharField(max_length=100)
