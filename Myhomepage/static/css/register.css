@@ -1,0 +1,35 @@
+html {
+    padding: 0px;
+    margin: 0px;
+    background-color: skyblue ;
+  }
+  
+p{
+    margin-top: 20%;
+    font-size: 2rem;
+}
+.reg{
+    margin-top: 200px;
+    background-color: skyblue ;
+    
+}
+.reg, p{
+    text-align: center;
+    font-weight: bold;
+    
+}
+form{
+    margin-bottom: 10px;
+    color: black;
+    line-height: 2rem;
+    
+}
+
+
+@media screen and (max-width: 800px) {
+    video{
+        width: 100%;
+        padding: 0;
+    }
+
+}

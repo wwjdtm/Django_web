@@ -1,0 +1,139 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background: black url("mov.gif") no-repeat;
+    background-size: cover;
+  }
+
+nav{
+    text-align: center;
+    padding-top: 20px;
+}
+nav a{
+    text-decoration: none;
+    color:white;
+}
+nav ul li{
+    text-align: center;
+    display:inline;  /* 세로나열을 가로나열로 변경 */
+    border-left:1px solid #999;
+    padding:0 10px;
+    font-size: 1.3rem;
+ }
+
+nav ul li:first-child{border-left:none;} /* 메뉴 분류중 제일 왼쪽의 "|"는 삭제*/
+.form{
+    font-weight: bold;
+    color: white;
+}
+.bgbox {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    background-color: black; }
+
+.mainpage{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    background-color: skyblue;
+}
+
+.bgtext {
+
+    position: absolute;
+    top: 16%;
+    width: 100%;
+    line-height: 30px;
+    }
+/*mainpage*/
+.mainpage{
+    position: absolute;
+    padding-top:16%;
+    width: 100%;
+    line-height: 30px;
+    text-align: center;
+
+}
+button:hover{
+    color: white;
+    background-color: blue;
+}
+
+#login, #Register{
+    border-color: inherit;
+    font-size: 3rem;
+    font-weight: bold;
+    color: grey;
+    border-radius: 30px;
+    /* margin: 0 auto; */
+    width: 250px;
+    height: 80px;
+    opacity: 0.4;
+    margin-right: 20px;
+}
+
+/*mainpage*/
+
+.bgtext p {
+    margin-left: 20px;
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ffffff;
+    /* font-family: LuloCleanW01-OneBold,sans-serif; */
+}
+.bgtext h2{
+    color: #ffffff;
+    margin-left: 25px;
+    text-align: left;
+    /* font-family: LuloCleanW01-OneBold,sans-serif; */
+}
+.bgtext h3{
+    margin-top: 300px;
+    color: #ffffff;
+    font-size: 2rem;
+    margin-left: 25px;
+    /* font-family: LuloCleanW01-OneBold,sans-serif; */
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+.bgtext h4{
+    color: #ffffff;
+    margin-left: 30px;
+    font-size: 1.1rem;
+    /* font-family: LuloCleanW01-OneBold,sans-serif; */
+}
+.bgtext img{
+    margin-left: 30px;
+    float: left;
+}
+.bgtext a{
+
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    float: left;
+    /* font-family: LuloCleanW01-OneBold,sans-serif; */
+
+}
+@media screen and (max-width: 800px) {
+    video{
+        width: 100%;
+        padding: 0;
+    }
+
+}
