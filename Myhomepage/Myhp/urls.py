@@ -19,11 +19,9 @@ from django.contrib import admin
 urlpatterns = [
 url(r'^admin/', admin.site.urls),
 url(r'^Myinfo/', include('Myinfo.urls')),
-   url(r'^', include('Myinfo.urls')),
-
-    # url(r'^Board/', include('Board.urls')),
-
-# url(r'^Sendemail/', include('Sendemail.urls')),
+url(r'^', include('Myinfo.urls')),
+url(r'^Board/', include('Board.urls')),
+url(r'^Sendemail/', include('Sendemail.urls')),
 
 
 ]
