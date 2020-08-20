@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   
+
+      {% for blog in blogs.all %}
+      <div class="container"> 
+      <div class="card">
+        <div class="card-body">
+        <h1>{{ blog.p_title }}</h1>
+        <p>{{ blog.p_pub_date}}</p>
+        <p>{{ blog.p_summary }}<a href="{% url 'Pdetail' blog.id %}"> ...자세히 보기</a></p> 
+        </div>
+      </div>
+      </div>
+      <br>
+      {% endfor %}
+
+{% endblock %}
+
+
+    <!-- 
+        <h1>hello world</h1>
+    <a href="{% url 'new' %}">new</a> -->
+
+
+
