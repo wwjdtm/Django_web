@@ -8,6 +8,8 @@ class Pblog(models.Model):
     p_title = models.CharField(max_length=200)
     p_pub_date = models.DateTimeField('date published')
     p_body = models.TextField()
+    p_link = models.TextField(null=True)
+    p_writer = models.CharField(max_length=50, default="윤정")
 
     def __str__(self):
         return self.p_title
@@ -21,6 +23,7 @@ class Nblog(models.Model):
     n_title = models.CharField(max_length=200)
     n_pub_date = models.DateTimeField('date published')
     n_body = models.TextField()
+    n_writer = models.CharField(max_length=50, default="윤정")
 
     def __str__(self):
         return self.n_title

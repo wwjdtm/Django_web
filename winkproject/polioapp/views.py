@@ -32,12 +32,14 @@ def Create(request):
     return render(request, 'Create.html')
 
 def postcreate(request):
-    if request.GET['boardname'] == "Project":
+    if request.GET['boardname'] == "Projects":
         blog = Pblog()
         blog.p_boardname = "Project"
         blog.p_title = request.GET['title']
         blog.p_body = request.GET['body']
         blog.p_pub_date = timezone.datetime.now()
+        blog.p_link = request.GET['link']
+        
         blog.save()
         return redirect('/polioapp/Pdetail/' + str(blog.id))
 

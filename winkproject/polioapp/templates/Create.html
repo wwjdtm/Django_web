@@ -5,18 +5,18 @@
 <br>
 <div class="container">
 	<form action="{% url 'postcreate' %}">
-	  <h4>게시판제목: </h4>
+	  <h4>게시판제목: [Projects | News ] </h4>
 	  <input type="text" name="boardname">
-	  <br>
-	  <br>
 	  <h4>글 제목: </h4>
 	  <input type="text" name="title">
-	  <br>
-	  <br>
 	  <h4>본문: </h4>
 	  <textarea cols=40 rows=10 name="body"></textarea>
+	  <h4>Link: </h4>
+	  <textarea cols=40 rows=1 name="link"></textarea>
+	 
 	  <br>
 	  <br>
+
 	  <input class="btn btn-dark" type="submit" value="글쓰기">
   </form>
 </div>
