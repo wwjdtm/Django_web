@@ -1,31 +1,30 @@
 {% extends 'base.html' %}
+{% block navbar %}
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'Project' %}">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'News' %}">News</a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Contact' %}">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Create' %}">NEWPOST</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}
 
 {% block content %}
 
 <form class ="gform" method="POST" data-email="kyj560785@gmail.com" action="https://script.google.com/macros/s/AKfycbyHY-hghCgbFWaGKfy27ep3dvSbrI7bAkKKjdBo1lmj0TBuRSU/exec">
-      <!-- <div class="form-elements">
-              <label for="name">Name: </label>
-              <input id="name" name="name" placeholder="이름을 입력해주세요" />
-              <br>
-              <label for="message">Message: </label>
-              <input id="message" style="height: 300px; width: 1000px;" name="message" rows="10"
-              placeholder="메세지를 입력해주세요"></input>
-         
-              <br>
-              <label for="email"><em>Your</em> Email Address:</label>
-              <input id="email" name="email" type="email" value=""
-              required placeholder="your.name@email.com"/>
-            
-              <br>
-      
-            <button class="button-success pure-button button-xlarge">
-              <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
-          </div>
-      
-          <div class="thankyou_message" style="display:none;">
-            <h2><em>Thanks</em> for contacting me!
-              I will get back to you soon!</h2>
-          </div> -->
+   
           <div class="container">
             <form >
                   <br>
