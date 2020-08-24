@@ -2,20 +2,13 @@
 
 {% block content %}
 
+<form class ="gform" method="POST" data-email="kyj560785@gmail.com" action="https://script.google.com/macros/s/AKfycbyHY-hghCgbFWaGKfy27ep3dvSbrI7bAkKKjdBo1lmj0TBuRSU/exec">
+<label for="name">성함 : </label>
+<input id="name" name="name" required placeholder="성함을 입력해주세요"/>
 <br>
-<div class="container">
-	  <h4>이름 : </h4>
-	  <input type="text" name="sendname">
-	  <h4>이메일 : </h4>
-	  <input type="text" name="email">
-	  <h4>내용 : </h4>
-	  <textarea cols=40 rows=10 name="body"></textarea>
-        <br>
-        <br>
+<label for="email">Email Address:</label>
+<input type="text" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요"/><br />
+<button class="btn btn-dark" style="font-size: 1.7vmax;margin-bottom:5%;margin-top: -2rem;">
+      메시지 보내기</button></div>
 
-	  <input class="btn btn-dark" type="submit" value="메일전송">
-  </form>
-</div>
-
-
-{% endblock %}    
+{% endblock %}   
