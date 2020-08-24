@@ -3,14 +3,54 @@
 {% block content %}
 
 <form class ="gform" method="POST" data-email="kyj560785@gmail.com" action="https://script.google.com/macros/s/AKfycbyHY-hghCgbFWaGKfy27ep3dvSbrI7bAkKKjdBo1lmj0TBuRSU/exec">
-<label for="name">이름 : </label>
-<input id="name" class="form-control" name="name" required placeholder="이름을 입력해주세요"/>
-<br>
-<label for="email">Email Address:</label>
-<input type="text" class="form-control" name="email" id="email" placeholder="이메일을 입력해주세요"/><br />
-<label for="data">내용 :</label>
-<input type="text" style="height:300px; " class="form-control" name="data" id="data" placeholder="내용을 입력해주세요"/><br />
-<button class="btn btn-dark" style="margin-bottom:5%; ">
-      메시지 보내기</button></div>
+      <!-- <div class="form-elements">
+              <label for="name">Name: </label>
+              <input id="name" name="name" placeholder="이름을 입력해주세요" />
+              <br>
+              <label for="message">Message: </label>
+              <input id="message" style="height: 300px; width: 1000px;" name="message" rows="10"
+              placeholder="메세지를 입력해주세요"></input>
+         
+              <br>
+              <label for="email"><em>Your</em> Email Address:</label>
+              <input id="email" name="email" type="email" value=""
+              required placeholder="your.name@email.com"/>
+            
+              <br>
+      
+            <button class="button-success pure-button button-xlarge">
+              <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+          </div>
+      
+          <div class="thankyou_message" style="display:none;">
+            <h2><em>Thanks</em> for contacting me!
+              I will get back to you soon!</h2>
+          </div> -->
+          <div class="container">
+            <form >
+              <h4>Name:</h4>
+              <input type="text" name="boardname" placeholder="이름을 입력해주세요">
+              <h4>Message: </h4>
+              <textarea cols=40 rows=10 name="Message" placeholder="메세지를 입력해주세요"></textarea>
+              <h4>Email: </h4>
+              <textarea cols=40 rows=1 name="email" type="email" value=""
+              required placeholder="your.name@email.com"></textarea>
+              <br>
+              <br>
+              <input class="btn btn-dark" type="submit" value="메일전송">
+              
+            </form>
+      
+            <div class="thankyou_message" style="display:none;">
+            <h2><em>Thanks</em> for contacting me!
+              I will get back to you soon!</h2>
+            </div> 
+      
+        </form>
+      
+        <script data-cfasync="false" type="text/javascript"
+        src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js">
+        </script>
+       
 
-{% endblock %}   
+{% endblock %}    
