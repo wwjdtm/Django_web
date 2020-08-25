@@ -29,7 +29,9 @@
         <p>{{ news.n_body }}</p> 
         <p>{{ news.n_writer }}</p> 
 
-        <a href="{% url 'News' %}">돌아가기</a>
+        <a style="color:white;"href="{% url 'Ndelete' news.id %}">삭제하기</a>
+        <br>
+        <a style="color:white;"href="{% url 'News' %}">돌아가기</a>
   
 
 {% endblock %}

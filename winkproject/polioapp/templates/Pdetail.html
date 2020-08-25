@@ -30,8 +30,11 @@
         <p>{{ blog.p_body }}</p> 
         <p>{{ blog.p_link }}</p> 
         <p>{{ blog.p_writer }}</p> 
-
-        <a href="{% url 'Project' %}">돌아가기</a>
+        
+        <a style="color:white;"href="{% url 'Pdelete' blog.id %}">삭제하기</a>
+        <br>
+        <a style="color:white;"href="{% url 'Project' %}">돌아가기</a>
+        
   
 
 {% endblock %}

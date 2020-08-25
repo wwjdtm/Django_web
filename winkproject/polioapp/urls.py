@@ -10,6 +10,8 @@ urlpatterns = [
     path('Ndetail/<int:news_id>/', views.Ndetail, name='Ndetail'),
     path('Create/', views.Create, name='Create'),
     path('postcreate/', views.postcreate, name='postcreate'),
+    path('Pdelete/<int:blog_id>/', views.Pdelete, name='Pdelete'),
+    path('Ndelete/<int:news_id>/', views.Ndelete, name='Ndelete'),
 
 
 

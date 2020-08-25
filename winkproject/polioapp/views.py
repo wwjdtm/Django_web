@@ -59,3 +59,12 @@ def postcreate(request):
 def new(request):
     return render(request,'new.html')
 
+def Pdelete(request, blog_id):
+    blog = Pblog.objects.get(id=blog_id)
+    blog.delete()
+    return redirect('/polioapp/Project/')
+
+def Ndelete(request, news_id):
+    news = Nblog.objects.get(id=news_id)
+    news.delete()
+    return redirect('/polioapp/News/')
