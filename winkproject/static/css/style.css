@@ -1,7 +1,7 @@
 body {
     padding-top: 10px;
     margin: 0px;
-    background: black url("mainpage.png") no-repeat;
+    background: black url("mov.gif") no-repeat;
     background-size: cover;
   }
 
@@ -15,7 +15,14 @@ body {
   margin-top: 300px;
 }
 
-.navbar{
-  background: rgba(0,0,0,0.4);
+.pdetail h1, .pdetail p,.ndetail h1, .ndetail p{
+  color: white;
 }
+.pdetail p,.ndetail p{
+  font-size:1.2rem;}
+
+.pdetail a,.ndetail a{
+  font-weight: bold;
+}
+
 
