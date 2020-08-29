@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Pblog, Nblog
 from django.utils import timezone
 from django import forms
+from .form import BlogUpdate
 
 # Create your views here.c
 def home(request):
@@ -73,13 +74,16 @@ def Ndelete(request, news_id):
 def update(request, blog_id):
     blog = Pblog.objects.get(id=blog_id)
 
-    if request.method == "POST":
-        blog.p_title = request.POST['title']
-        blog.p_body = request.POST['body']
-        blog.p_pub_date = timezone.datetime.now()
-        blog.p_link = request.POST['link']
-        blog.save()
-        return redirect('/polioapp/Pdetail/' + str(blog.id))
-
+    if request.method =='POST':
+        form = BlogUpdate(request.POST)
+        if form.is_valid():
+            blog.p_title = form.cleaned_data['p_title']
+            blog.p_body = form.cleaned_data['p_body']
+            blog.p_pub_date=timezone.now()
+            blog.p_link = form.cleaned_data['p_link']
+            blog.save()
+            return redirect('/polioapp/Pdetail/' + str(blog.id))
     else:
-        return render(request, 'update.html')
+        form = BlogUpdate(instance = blog)
+ 
+        return render(request,'update.html', {'form':form})
