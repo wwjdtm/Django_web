@@ -23,22 +23,25 @@
 {% endblock %}
 
 {% block content %}
-      <div class="pdetail">
 
-  
-        <h1>제목 : {{ blog.p_title }}</h1>
-        <p>작성일시 : {{ blog.p_pub_date }}</p>
-        <p>내용 : {{ blog.p_body }}</p> 
-        <p>링크 : {{ blog.p_link }}</p> 
-        <p>작성자 : {{ blog.p_writer }}</p> 
-        <br>
-        <br>
-        <br>
-        <br>
-        <a style="color:black;"href="{% url 'Pdelete' blog.id %}">삭제하기</a>
-        <a style="color:black;"href="{% url 'update' blog.id %}">수정하기</a>
-        <a style="color:black; margin-left: 20px;"href="{% url 'Project' %}">돌아가기</a>
-        
-      </div>
+<br>
+<div class="container">
+	<form method="POST">
+	  {% csrf_token %}
+	  <h4>제목: </h4>
+	  <input type="text" name="title">
+	  <br>
+	  <br>
+	  <h4>본문: </h4>
+	  <textarea cols=40 rows=10 name="body"></textarea>
+	  <br>
+	  <br>
+	  <h4>링크: </h4>
+	  <input type="text" name="link">
+	  <br>
+	  <input class="btn btn-dark" type="submit" value="수정하기">
+  </form>
+</div>
+
 
 {% endblock %}
