@@ -26,7 +26,7 @@
 <br>
 <div class="container">
 	<form action="{% url 'postcreate' %}">
-	  <h4>게시판제목:</h4>
+	  <h4>게시판:</h4>
     <!-- <input style="width:980px;height: 50px;" type="text" name="boardname"> -->
     <select style="width:300px; height: 40px; font-size: 1.2rem;"  name="boardname">
       <option value="Projects">Projects</option>
@@ -34,10 +34,21 @@
     </select>
 	  <h4>글 제목: </h4>
 	  <input style="width:980px;height: 50px;" type="text" name="title">
-	  <h4>본문: </h4>
-	  <textarea cols=120 rows=10 name="body"></textarea>
+    <h4>본문: </h4>
+    <textarea name="txtContent" id="txtContent" rows="10" cols="90"></textarea>
+    <script> $(() => { nhn.husky.EZCreator.createInIFrame({ 
+      oAppRef: editor, 
+      elPlaceHolder: 'txtContent', 
+      sSkinURI: '../../../../static/SmartEditor2Skin.html', 
+      fCreator: 'createSEditor2' }); 
+      
+      }); 
+    </script>
+
+
+	  <!-- <textarea cols=120 rows=10 name="body"></textarea> -->
 	  <h4>Link: </h4>
-	  <textarea cols=120 rows=1 name="link"></textarea>
+	  <textarea cols=120 rows=2 name="link"></textarea>
 	  <br>
 	  <br>
 	  <input class="btn btn-dark" type="submit" value="글쓰기">
