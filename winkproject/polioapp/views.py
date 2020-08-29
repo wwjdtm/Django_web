@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Pblog, Nblog
 from django.utils import timezone
 from django import forms
-from .form import BlogUpdate
+from .form import PblogUpdate,NblogUpdate
 
 # Create your views here.c
 def home(request):
@@ -71,11 +71,11 @@ def Ndelete(request, news_id):
     news.delete()
     return redirect('/polioapp/News/')
 
-def update(request, blog_id):
+def Pupdate(request, blog_id):
     blog = Pblog.objects.get(id=blog_id)
 
     if request.method =='POST':
-        form = BlogUpdate(request.POST)
+        form = PblogUpdate(request.POST)
         if form.is_valid():
             blog.p_title = form.cleaned_data['p_title']
             blog.p_body = form.cleaned_data['p_body']
@@ -84,6 +84,22 @@ def update(request, blog_id):
             blog.save()
             return redirect('/polioapp/Pdetail/' + str(blog.id))
     else:
-        form = BlogUpdate(instance = blog)
+        form = PblogUpdate(instance = blog)
+ 
+        return render(request,'update.html', {'form':form})
+
+def Nupdate(request, news_id):
+    news = Nblog.objects.get(id=news_id)
+
+    if request.method =='POST':
+        form = NblogUpdate(request.POST)
+        if form.is_valid():
+            news.n_title = form.cleaned_data['n_title']
+            news.n_body = form.cleaned_data['n_body']
+            news.n_pub_date=timezone.now()
+            news.save()
+            return redirect('/polioapp/Ndetail/' + str(news.id))
+    else:
+        form = NblogUpdate(instance = news)
  
         return render(request,'update.html', {'form':form})

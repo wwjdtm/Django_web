@@ -12,7 +12,8 @@ urlpatterns = [
     path('postcreate/', views.postcreate, name='postcreate'),
     path('Pdelete/<int:blog_id>/', views.Pdelete, name='Pdelete'),
     path('Ndelete/<int:news_id>/', views.Ndelete, name='Ndelete'),
-    path('update/<int:blog_id>/', views.update, name='update'),
+    path('Pupdate/<int:blog_id>/', views.Pupdate, name='Pupdate'),
+    path('Nupdate/<int:news_id>/', views.Nupdate, name='Nupdate'),
 
 
 
