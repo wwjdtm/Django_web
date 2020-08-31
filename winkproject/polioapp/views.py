@@ -44,13 +44,14 @@ def Create(request):
     return render(request, 'Create.html')
 
 def postcreate(request):
-    if request.GET['boardname'] == "Projects":
+    if request.POST['boardname'] == "Projects":
         blog = Pblog()
         blog.p_boardname = "Project"
-        blog.p_title = request.GET['title']
-        blog.p_body = request.GET['body']
+        blog.p_title = request.POST['title']
+        blog.p_body = request.POST['body']
         blog.p_pub_date = timezone.datetime.now()
-        blog.p_link = request.GET['link']
+        blog.p_images = request.FILES.get('images','')
+        blog.p_link = request.POST['link']
         
         blog.save()
         return redirect('/polioapp/Pdetail/' + str(blog.id))
@@ -58,15 +59,12 @@ def postcreate(request):
     else:
         blog = Nblog()
         blog.n_boardname = "News"
-        blog.n_title = request.GET['title']
-        blog.n_body = request.GET['body']
+        blog.n_title = request.POST['title']
+        blog.n_body = request.POST['body']
         blog.n_pub_date = timezone.datetime.now()
+        blog.n_images = request.FILES['images']
         blog.save()
         return redirect('/polioapp/Ndetail/' + str(blog.id))
-
-
-
-
 
 def new(request):
     return render(request,'new.html')
@@ -90,6 +88,7 @@ def Pupdate(request, blog_id):
             blog.p_title = form.cleaned_data['p_title']
             blog.p_body = form.cleaned_data['p_body']
             blog.p_pub_date=timezone.now()
+            # blog.p_images = form.cleaned_data['p_images']
             blog.p_link = form.cleaned_data['p_link']
             blog.save()
             return redirect('/polioapp/Pdetail/' + str(blog.id))
@@ -107,6 +106,7 @@ def Nupdate(request, news_id):
             news.n_title = form.cleaned_data['n_title']
             news.n_body = form.cleaned_data['n_body']
             news.n_pub_date=timezone.now()
+            # news.n_images = form.cleaned_data['n_images']
             news.save()
             return redirect('/polioapp/Ndetail/' + str(news.id))
     else:

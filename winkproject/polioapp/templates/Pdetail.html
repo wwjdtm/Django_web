@@ -23,21 +23,28 @@
 {% endblock %}
 
 {% block content %}
+
       <div class="pdetail">
 
   
-        <h1>제목 : {{ blog.p_title }}</h1>
-        <p>작성일시 : {{ blog.p_pub_date }}</p>
-        <p>내용 : {{ blog.p_body }}</p> 
-        <p>링크 : {{ blog.p_link }}</p> 
-        <p>작성자 : {{ blog.p_writer }}</p> 
-        <br>
-        <br>
-        <br>
-        <br>
-        <a style="color:black;"href="{% url 'Pdelete' blog.id %}">삭제하기</a>
-        <a style="color:black;"href="{% url 'update' blog.id %}">수정하기</a>
+        <h1>{{ blog.p_title }}</h1>
+        <a style="color:black;"href="{% url 'Pdelete' blog.id %}">삭제</a>
+        <a style="color:black;margin-left: 20px;"href="{% url 'Pupdate' blog.id %}">수정</a>
         <a style="color:black; margin-left: 20px;"href="{% url 'Project' %}">돌아가기</a>
+        <p>{{ blog.p_pub_date }}</p>
+        <p>{{ blog.p_body }}</p> 
+        <div>
+        {% if blog.p_images %}
+                <img src="{{ blog.p_images.url }}" width="500" height="500">
+        {% endif %}
+        </div>
+        <p>{{ blog.p_link }}</p> 
+        <p>{{ blog.p_writer }}</p> 
+        <br>
+        <br>
+        <br>
+        <br>
+        
         
       </div>
 
