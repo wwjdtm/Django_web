@@ -4,6 +4,7 @@ from .models import Pblog, Nblog
 from django.utils import timezone
 from django import forms
 from .form import PblogUpdate,NblogUpdate
+from django.core.paginator import Paginator
 
 # Create your views here.c
 def home(request):
@@ -11,11 +12,20 @@ def home(request):
 
 def Project(request):
     blogs = Pblog.objects.order_by('-id')
-    return render(request, 'Project.html', {'blogs': blogs})
+    blog_list=Pblog.objects.all().order_by('-id')
+    paginator = Paginator(blog_list,4)
+    page=request.GET.get('page')
+    posts=paginator.get_page(page)
+
+    return render(request, 'Project.html', {'blogs': blogs, 'posts':posts})
 
 def News(request):
     newss = Nblog.objects.order_by('-id')
-    return render(request, 'News.html', {'newss': newss})
+    news_list=Nblog.objects.all().order_by('-id')
+    paginator = Paginator(news_list,4)
+    page=request.GET.get('page')
+    posts=paginator.get_page(page)
+    return render(request, 'News.html', {'newss': newss, 'posts':posts})
 
 def Pdetail(request, blog_id):
     blog_detail = get_object_or_404(Pblog, pk=blog_id)
