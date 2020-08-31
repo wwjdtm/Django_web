@@ -37,19 +37,21 @@
       <br>
       {% endfor %}
 
-      {%if posts.has_previous%}
-      <a href="?page=1">First</a>
-      <a href="?page={{posts.previous_page_number}}">Previous</a>
-      {%endif%}
+      <div style="text-align: center;" class="pagina">
+        {%if posts.has_previous%}
+        <a style="color: white;"href="?page=1">처음 | </a>
+        <a style="color: white;" href="?page={{posts.previous_page_number}}">이전 | </a>
+        {%endif%}
 
-      <span>{{posts.number}}</span>
-      <span>of</span>
-      <span>{{posts.paginator.num_pages}}</span>
+        <span style="color: white;">{{posts.number}}</span>
+        <span style="color: white;">of</span>
+        <span style="color: white;" >{{posts.paginator.num_pages}} | </span>
 
-      {%if posts.has_next%}
-      <a href="?page={{posts.next_page_number}}">Next</a>
-      <a href="?page={{posts.paginator.num_pages}}">Last</a>
-      {%endif%}
+        {%if posts.has_next%}
+        <a style="color: white;" href="?page={{posts.next_page_number}}">다음 | </a>
+        <a style="color: white;" href="?page={{posts.paginator.num_pages}}">마지막</a>
+        {%endif%}
+      </div>
 
 {% endblock %}
 
