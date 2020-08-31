@@ -24,17 +24,31 @@
 {% block content %}
 
   
-      {% for news in newss.all %}
+      {% for news in posts %}
       <div class="container"> 
       <div class="card">
         <div class="card-body">
         <h1>{{ news.n_title }}</h1>
         <p>{{ news.n_pub_date}}</p>
-        <p>{{ news.n_summary }}<a href="{% url 'Ndetail' news.id %}"> ...자세히 보기</a></p> 
+        <p>{{ news.n_summary }}<br><a href="{% url 'Ndetail' news.id %}"> 자세히 보기</a></p> 
         </div>
       </div>
       </div>
       <br>
       {% endfor %}
+
+      {%if posts.has_previous%}
+      <a href="?page=1">First</a>
+      <a href="?page={{posts.previous_page_number}}">Previous</a>
+      {%endif%}
+
+      <span>{{posts.number}}</span>
+      <span>of</span>
+      <span>{{posts.paginator.num_pages}}</span>
+
+      {%if posts.has_next%}
+      <a href="?page={{posts.next_page_number}}">Next</a>
+      <a href="?page={{posts.paginator.num_pages}}">Last</a>
+      {%endif%}
 
 {% endblock %}
