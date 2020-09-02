@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{{value|linebreaks}}
 {% block navbar %}
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
@@ -24,9 +25,9 @@
 {% block content %}
 
 
-<div style="padding-top:20px;background-color:rgba(255, 255, 255, 0.801);height: 800px;"   class="container">
+<div style="padding-top:20px;background-color:rgba(255, 255, 255, 0.801);height: 900px;"   class="container">
   
-  <form action="{% url 'postcreate' %}"  enctype="multipart/form-data" method="POST">
+  <form action="{% url 'postcreate' %}"  enctype="multipart/form-data" method="POST"  >
     {% csrf_token %}
 
     <!-- {% if messages %}
@@ -36,6 +37,9 @@
           {% endfor %}
         </div>
     {% endif %} -->
+
+
+    
     
         <h4>게시판:</h4>
           <select style="width:300px; height: 40px; font-size: 1.2rem;"  name="boardname">
@@ -49,13 +53,17 @@
           <h4>이미지: </h4>
           <input type="file" name="images" accept="image/*">
           <h4>Link: </h4>
-          <textarea required cols=120 rows=2 name="link"></textarea>
+          <textarea cols=120 rows=2 name="link"></textarea>
+          <h4>Key: </h4>
+          <input required name="key" type="password"></textarea>
           <br>
           <br>
         <!-- <h5 style="color: whitesmoke;">본인확인암호: </h5>
         <textarea required cols=30 rows=1 name="password"></textarea> -->
         
-          <input class="btn btn-dark" type="submit" value="글쓰기">
+        
+          <input class="btn btn-dark"  type="submit" value="글쓰기">
+
     <div>
   </form>
 </div>

@@ -38,15 +38,16 @@
         
         <br>
 
-        
-        <p style="margin-top:20px;">{{ blog.p_body }}</p> 
+        <hr>
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ blog.p_body|linebreaksbr }}</p> 
         <div>
         {% if blog.p_images %}
                 <img src="{{ blog.p_images.url }}" width="600" height="500">
         {% endif %}
         </div>
-        <p style="margin-top:20px;">  Link : {{ blog.p_link }}</p> 
-        <p> - {{ blog.p_writer }}</p>
+        <hr>
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">  Link : {{ blog.p_link }}</p> 
+        <!-- <p> - {{ blog.p_writer }}</p> -->
         
         <br>
         <br>

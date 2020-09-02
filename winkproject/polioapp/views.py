@@ -5,6 +5,9 @@ from django.utils import timezone
 from django import forms
 from .form import PblogUpdate,NblogUpdate
 from django.core.paginator import Paginator
+from django.http import HttpResponse
+import json
+from django.http    import JsonResponse
 
 # Create your views here.c
 def home(request):
@@ -44,27 +47,30 @@ def Create(request):
     return render(request, 'Create.html')
 
 def postcreate(request):
-    if request.POST['boardname'] == "Projects":
-        blog = Pblog()
-        blog.p_boardname = "Project"
-        blog.p_title = request.POST['title']
-        blog.p_body = request.POST['body']
-        blog.p_pub_date = timezone.datetime.now()
-        blog.p_images = request.FILES.get('images','')
-        blog.p_link = request.POST['link']
-        
-        blog.save()
-        return redirect('/polioapp/Pdetail/' + str(blog.id))
+    if request.POST['key'] == "yunjeongzzang" or request.POST['key'] == "ㅛㅕㅝ대ㅜㅎㅋㅋ뭏":
+        if request.POST['boardname'] == "Projects":
+            blog = Pblog()
+            blog.p_boardname = "Project"
+            blog.p_title = request.POST['title']
+            blog.p_body = request.POST['body']
+            blog.p_pub_date = timezone.datetime.now()
+            blog.p_images = request.FILES.get('images','')
+            blog.p_link = request.POST['link']
+            
+            blog.save()
+            return redirect('/polioapp/Pdetail/' + str(blog.id))
 
+        else:
+            blog = Nblog()
+            blog.n_boardname = "News"
+            blog.n_title = request.POST['title']
+            blog.n_body = request.POST['body']
+            blog.n_pub_date = timezone.datetime.now()
+            blog.n_images = request.FILES.get('images','')
+            blog.save()
+            return redirect('/polioapp/Ndetail/' + str(blog.id))
     else:
-        blog = Nblog()
-        blog.n_boardname = "News"
-        blog.n_title = request.POST['title']
-        blog.n_body = request.POST['body']
-        blog.n_pub_date = timezone.datetime.now()
-        blog.n_images = request.FILES['images']
-        blog.save()
-        return redirect('/polioapp/Ndetail/' + str(blog.id))
+        return HttpResponse('키값이 일치하지 않습니다.')
 
 def new(request):
     return render(request,'new.html')
@@ -83,15 +89,21 @@ def Pupdate(request, blog_id):
     blog = Pblog.objects.get(id=blog_id)
 
     if request.method =='POST':
-        form = PblogUpdate(request.POST)
-        if form.is_valid():
-            blog.p_title = form.cleaned_data['p_title']
-            blog.p_body = form.cleaned_data['p_body']
-            blog.p_pub_date=timezone.now()
-            # blog.p_images = form.cleaned_data['p_images']
-            blog.p_link = form.cleaned_data['p_link']
-            blog.save()
-            return redirect('/polioapp/Pdetail/' + str(blog.id))
+        if request.POST['key'] == "yunjeongzzang" or request.POST['key'] == "ㅛㅕㅝ대ㅜㅎㅋㅋ뭏":
+        
+            form = PblogUpdate(request.POST)
+            if form.is_valid():
+                blog.p_title = form.cleaned_data['p_title']
+                blog.p_body = form.cleaned_data['p_body']
+                blog.p_pub_date=timezone.now()
+                # blog.p_images = form.cleaned_data['p_images']
+                blog.p_link = form.cleaned_data['p_link']
+                
+                blog.save()
+                return redirect('/polioapp/Pdetail/' + str(blog.id))
+        else:
+            return HttpResponse('키값이 일치하지 않습니다.')
+
     else:
         form = PblogUpdate(instance = blog)
  
@@ -101,14 +113,18 @@ def Nupdate(request, news_id):
     news = Nblog.objects.get(id=news_id)
 
     if request.method =='POST':
-        form = NblogUpdate(request.POST)
-        if form.is_valid():
-            news.n_title = form.cleaned_data['n_title']
-            news.n_body = form.cleaned_data['n_body']
-            news.n_pub_date=timezone.now()
-            # news.n_images = form.cleaned_data['n_images']
-            news.save()
-            return redirect('/polioapp/Ndetail/' + str(news.id))
+        if request.POST['key'] == "yunjeongzzang" or request.POST['key'] == "ㅛㅕㅝ대ㅜㅎㅋㅋ뭏":
+                form = NblogUpdate(request.POST)
+                if form.is_valid():
+                    news.n_title = form.cleaned_data['n_title']
+                    news.n_body = form.cleaned_data['n_body']
+                    news.n_pub_date=timezone.now()
+                    # news.n_images = form.cleaned_data['n_images']
+                    news.save()
+                    return redirect('/polioapp/Ndetail/' + str(news.id))
+        else:
+            return HttpResponse('키값이 일치하지 않습니다.')
+            
     else:
         form = NblogUpdate(instance = news)
  

@@ -39,14 +39,14 @@
         
         <br>
 
-        
-        <p style="margin-top:20px;">{{ news.n_body }}</p> 
+        <hr>
+        <p style="margin-top:20px;text-align:left;margin-left:320px;">{{ news.n_body|linebreaksbr }}</p> 
         <div>
         {% if news.n_images %}
                 <img src="{{ news.n_images.url }}" width="600" height="500">
           {% endif %}
         </div>
-        <p>{{ news.n_writer }}</p> 
+        <!-- <p>{{ news.n_writer }}</p>  -->
         <br>
         <br>
         <br>
