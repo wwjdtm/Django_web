@@ -23,17 +23,27 @@
 
 {% block content %}
 
-    <div class="ndetail">
+<h4 style="visibility: hidden;" > {{news.update_ncounter}} </h4>
+
+      <div class="ndetail" style="background-color:rgba(255, 255, 255, 0.801); text-align:center;">
+
+  
+        <h1 style="padding-top:30px">{{ news.n_title }}</h1> 
+        작성일시 : {{ news.n_pub_date }}
+        <br>
+        조회수 : {{news.n_views}} 
+        <a style="background-color: yellowgreen;color:black;margin-left:250px;"href="{% url 'Ndelete' news.id %}"> 삭제 </a>
+        <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'Nupdate' news.id %}"> 수정 </a>
+        <a style="background-color: yellowgreen;color:black; margin-left: 20px;"href="{% url 'News' %}"> 돌아가기 </a>
         
-        <h1>{{ news.n_title }}</h1>
-        <a style="color:black;"href="{% url 'Ndelete' news.id %}">삭제</a>
-        <a style="color:black;margin-left: 20px;"href="{% url 'Nupdate' news.id %}">수정</a>
-        <a style="color:black;margin-left: 20px;"href="{% url 'News' %}">돌아가기</a>
-        <p>{{ news.n_pub_date }}</p>
-        <p>{{ news.n_body }}</p> 
+        
+        <br>
+
+        
+        <p style="margin-top:20px;">{{ news.n_body }}</p> 
         <div>
         {% if news.n_images %}
-                <img src="{{ news.n_images.url }}" width="500" height="500">
+                <img src="{{ news.n_images.url }}" width="600" height="500">
           {% endif %}
         </div>
         <p>{{ news.n_writer }}</p> 

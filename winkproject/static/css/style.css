@@ -1,14 +1,20 @@
 body {
     padding-top: 10px;
     margin: 0px;
-    background: black url("mov.gif") no-repeat;
-    background-size: cover;
+    background: black url("mov.gif") repeat-x;
+    /* background-size: cover; */
   }
 
-.hometext h1, h2, h3, h4{
+.hometext h1, .hometext h2, .hometext h3, .hometext h4{
   margin-top: 20px;
   color: white;
   font-weight: bold;
+}
+h1,h2,h3,h4{
+  margin-top: 20px;
+  color: black;
+  font-weight: bold;
+
 }
 
 .Contact{
@@ -16,7 +22,7 @@ body {
 }
 
 .pdetail h1, .pdetail p,.ndetail h1, .ndetail p{
-  color: white;
+  color: black;
 }
 .pdetail p,.ndetail p{
   font-size:1.2rem;}
@@ -24,5 +30,7 @@ body {
 .pdetail a,.ndetail a{
   font-weight: bold;
 }
-
+.h5{
+  color: black;
+}
 

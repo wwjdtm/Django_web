@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-
 {% block navbar %}
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
@@ -23,23 +22,32 @@
 {% endblock %}
 
 {% block content %}
+<h4 style="visibility: hidden;" > {{blog.update_pcounter}} </h4>
 
-      <div class="pdetail">
+      <div class="pdetail" style="background-color:rgba(255, 255, 255, 0.801); text-align:center;">
 
   
-        <h1>{{ blog.p_title }}</h1>
-        <a style="color:black;"href="{% url 'Pdelete' blog.id %}">삭제</a>
-        <a style="color:black;margin-left: 20px;"href="{% url 'Pupdate' blog.id %}">수정</a>
-        <a style="color:black; margin-left: 20px;"href="{% url 'Project' %}">돌아가기</a>
-        <p>{{ blog.p_pub_date }}</p>
-        <p>{{ blog.p_body }}</p> 
+        <h1 style="padding-top:30px">{{ blog.p_title }}</h1> 
+        작성일시 : {{ blog.p_pub_date }}
+        <br>
+        조회수 : {{blog.p_views}} 
+        <a style="background-color: yellowgreen;color:black;margin-left:250px;"href="{% url 'Pdelete' blog.id %}"> 삭제 </a>
+        <a style="background-color: yellowgreen;color:black;margin-left: 20px;"href="{% url 'Pupdate' blog.id %}"> 수정 </a>
+        <a style="background-color: yellowgreen;color:black; margin-left: 20px;"href="{% url 'Project' %}"> 돌아가기 </a>
+        
+        
+        <br>
+
+        
+        <p style="margin-top:20px;">{{ blog.p_body }}</p> 
         <div>
         {% if blog.p_images %}
-                <img src="{{ blog.p_images.url }}" width="500" height="500">
+                <img src="{{ blog.p_images.url }}" width="600" height="500">
         {% endif %}
         </div>
-        <p>{{ blog.p_link }}</p> 
-        <p>{{ blog.p_writer }}</p> 
+        <p style="margin-top:20px;">  Link : {{ blog.p_link }}</p> 
+        <p> - {{ blog.p_writer }}</p>
+        
         <br>
         <br>
         <br>
